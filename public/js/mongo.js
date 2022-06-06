@@ -2,12 +2,16 @@ const express = require("express");
 const { Db } = require("mongodb");
 const mongoose = require("mongoose");
 const validator = require("validator");
-mongoose.connect("mongodb://127.0.0.1:27017/newsletter", {
+require("dotenv").config();
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
   useFindAndModify: false,
 });
+
+
+
 const app = express();
 app.use(express.json());
 
